@@ -1,134 +1,68 @@
-:root {
-    --bg-color: #050505;
-    --card-bg: #111111;
-    --accent-color: #ffffff;
-    --text-dim: #666666;
-    --border-color: #222222;
+/* ... წინა სტილები დატოვე და დაამატე ესენი ბოლოში ... */
+
+.divider {
+    border: 0;
+    border-top: 1px solid #222;
+    margin: 30px 0;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: white;
-    font-family: 'Inter', sans-serif;
+.subscribe-section h3 {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.subscribe-section p {
+    font-size: 0.7rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.sub-form {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.main-card {
-    background: var(--card-bg);
-    width: 90%;
-    max-width: 450px;
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+.sub-form input {
+    background: #151515;
+    border: 1px solid #222;
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    font-family: inherit;
     text-align: center;
 }
 
-.logo {
-    font-size: 1.8rem;
-    letter-spacing: 12px;
-    font-weight: 200;
-    margin: 0;
-    text-transform: uppercase;
+.sub-form input:focus {
+    border-color: #444;
 }
 
-.logo span {
-    font-weight: 900;
-    color: var(--text-dim);
-}
-
-.tagline {
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-top: 10px;
-}
-
-/* ღილაკების სტილი */
-.button-group {
-    display: flex;
-    gap: 10px;
-    margin: 30px 0;
-    justify-content: center;
-}
-
-.nav-btn {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-btn.active {
+.submit-btn {
     background: white;
     color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
     font-weight: bold;
-}
-
-.nav-btn:hover:not(.active) {
-    background: var(--border-color);
-}
-
-/* ატვირთვის ზონა */
-.custom-upload {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    border: 2px dashed var(--border-color);
-    border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 20px;
-}
-
-.custom-upload:hover {
-    border-color: #444;
-    background: #151515;
-}
-
-.upload-icon {
-    font-size: 2rem;
-    font-weight: 200;
-    margin-bottom: 10px;
-}
-
-.upload-text {
-    font-size: 0.8rem;
-    color: var(--text-dim);
+    text-transform: uppercase;
+    font-size: 0.7rem;
     letter-spacing: 1px;
 }
 
-/* სურათის პრევიუ */
-.image-preview {
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 15px;
-    border: 1px solid var(--border-color);
+.submit-btn:hover {
+    background: #ccc;
 }
 
-.animated {
-    animation: slideUp 0.6s ease;
+.animated-fade {
+    animation: fadeIn 1s ease;
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-footer {
-    margin-top: 40px;
-    font-size: 0.6rem;
-    color: #333;
-    letter-spacing: 2px;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
