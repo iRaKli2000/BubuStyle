@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="ka">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BubuStyle | Dark Aesthetic</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1 class="logo">BUBU<span>STYLE</span></h1>
-        </header>
-        <main>
-            <section class="hero">
-                <h2>The Art of Minimalist Power</h2>
-                <p>მალე... დახვეწილი სტილი მათთვის, ვინც აფასებს ხარისხს.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn-primary">Coming Soon</a>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2026 BubuStyle</p>
-        </footer>
-    </div>
-</body>
-</html>
+<section class="upload-section">
+    <h3>ატვირთე შენი ფოტო</h3>
+    
+    <input type="file" id="imageInput" accept="image/*" style="display:none;">
+    <label for="imageInput" class="btn-primary">აირჩიე ფაილი</label>
+
+    <div id="preview"></div>
+</section>
+
+<script>
+    // მარტივი კოდი, რომელიც აჩვენებს ატვირთულ ფოტოს
+    document.getElementById('imageInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.width = '200px';
+                img.style.marginTop = '20px';
+                img.style.borderRadius = '10px';
+                document.getElementById('preview').innerHTML = '';
+                document.getElementById('preview').appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
