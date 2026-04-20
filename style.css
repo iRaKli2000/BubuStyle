@@ -1,68 +1,174 @@
-/* ... წინა სტილები დატოვე და დაამატე ესენი ბოლოში ... */
-
-.divider {
-    border: 0;
-    border-top: 1px solid #222;
-    margin: 30px 0;
+:root {
+    --black: #080808;
+    --dark-grey: #121212;
+    --accent: #ffffff;
+    --text-muted: #555555;
+    --border: rgba(255, 255, 255, 0.05);
+    --glass: rgba(255, 255, 255, 0.02);
 }
 
-.subscribe-section h3 {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background-color: var(--black);
+    color: var(--accent);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.subscribe-section p {
-    font-size: 0.7rem;
-    color: #555;
+/* ფონის ეფექტი */
+.bg-glow {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+
+/* Logo & Header */
+.status-bar {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
     margin-bottom: 20px;
 }
 
-.sub-form {
+.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #3aff3a;
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0 0 10px #3aff3a;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 100;
+    letter-spacing: 15px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.logo span { font-weight: 900; color: #333; }
+
+.tagline {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* Nav */
+.nav-links {
+    margin: 40px 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    gap: 25px;
 }
 
-.sub-form input {
-    background: #151515;
-    border: 1px solid #222;
-    padding: 12px;
-    border-radius: 10px;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-links a.active, .nav-links a:hover {
     color: white;
-    outline: none;
-    font-family: inherit;
-    text-align: center;
 }
 
-.sub-form input:focus {
+/* Upload Area */
+.drop-zone {
+    display: block;
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.drop-zone:hover {
+    background: rgba(255,255,255,0.02);
     border-color: #444;
 }
 
-.submit-btn {
+.plus-icon { font-size: 1.5rem; font-weight: 100; margin-bottom: 10px; }
+.drop-zone p { font-size: 0.6rem; letter-spacing: 2px; color: var(--text-muted); }
+
+.preview-wrapper img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    filter: grayscale(1);
+    transition: 0.5s;
+}
+
+.preview-wrapper img:hover { filter: grayscale(0); }
+
+/* Form Area */
+.newsletter { margin-top: 50px; }
+.newsletter h3 { font-size: 0.8rem; letter-spacing: 3px; }
+.newsletter p { font-size: 0.65rem; color: var(--text-muted); margin-bottom: 25px; }
+
+.minimal-form { display: flex; flex-direction: column; gap: 12px; }
+
+.minimal-form input {
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+.minimal-form button {
     background: white;
     color: black;
     border: none;
-    padding: 12px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 900;
     font-size: 0.7rem;
     letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.submit-btn:hover {
-    background: #ccc;
-}
+.minimal-form button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
 
-.animated-fade {
-    animation: fadeIn 1s ease;
-}
+/* Footer */
+footer { margin-top: 60px; }
+.footer-line { width: 30px; height: 1px; background: #333; margin: 0 auto 20px; }
+footer p { font-size: 0.55rem; color: #333; letter-spacing: 2px; }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Animations */
+.animated-entry { animation: fadeIn 1.2s ease-out; }
+.animated-up { animation: slideUp 0.6s ease-out; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
