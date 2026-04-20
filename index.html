@@ -3,60 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BubuStyle | Studio</title>
+    <title>BUBUSTYLE // Digital Studio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="main-card animated-fade">
+    <div class="bg-glow"></div>
+
+    <div class="container animated-entry">
         <header>
+            <div class="status-bar">
+                <span class="dot"></span> LIVE // 2026
+            </div>
             <h1 class="logo">BUBU<span>STYLE</span></h1>
-            <p class="tagline">Minimalist Digital Concept</p>
+            <p class="tagline">The Art of Sophistication</p>
         </header>
 
-        <nav class="button-group">
-            <button class="nav-btn">პროექტები</button>
-            <button class="nav-btn active">გალერეა</button>
-            <button class="nav-btn">კონტაქტი</button>
+        <nav class="nav-links">
+            <a href="#" class="active">STUDIO</a>
+            <a href="#">ARCHIVE</a>
+            <a href="#">INFO</a>
         </nav>
 
-        <section class="upload-container">
-            <input type="file" id="imageInput" accept="image/*" hidden>
-            <label for="imageInput" class="custom-upload">
-                <span class="upload-icon">+</span>
-                <span class="upload-text">ატვირთე ფოტო</span>
-            </label>
-            <div id="previewBox"></div>
-        </section>
+        <div class="content-grid">
+            <section class="upload-box">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <label for="imageInput" class="drop-zone">
+                    <div class="plus-icon">+</div>
+                    <p>UPLOAD VISUAL</p>
+                </label>
+                <div id="previewContainer"></div>
+            </section>
 
-        <hr class="divider">
-
-        <section class="subscribe-section">
-            <h3>გამოიწერე სიახლეები</h3>
-            <p>იყავი პირველი, ვინც გაიგებს ახალი კოლექციების შესახებ</p>
-            
-            <form action="https://formspree.io/f/xyklpadk" method="POST" class="sub-form">
-                <input type="email" name="email" placeholder="შენი იმეილი..." required>
-                <button type="submit" class="submit-btn">გამოწერა</button>
-            </form>
-        </section>
+            <section class="newsletter">
+                <div class="form-header">
+                    <h3>SUBSCRIBE</h3>
+                    <p>მიიღე ექსკლუზიური წვდომა სიახლეებზე.</p>
+                </div>
+                
+                <form action="https://formspree.io/f/xyklpadk" method="POST" class="minimal-form">
+                    <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
+                    <button type="submit">JOIN THE LIST</button>
+                </form>
+            </section>
+        </div>
 
         <footer>
-            <p>&copy; 2026 BUBUSTYLE // LABORATORY</p>
+            <div class="footer-line"></div>
+            <p>DESIGNED BY IRKLI SHVELIDZE // BUBUSTYLE LABS</p>
         </footer>
     </div>
 
     <script>
         const input = document.getElementById('imageInput');
-        const preview = document.getElementById('previewBox');
+        const preview = document.getElementById('previewContainer');
 
         input.addEventListener('change', function() {
             const file = this.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    preview.innerHTML = `<img src="${e.target.result}" class="image-preview animated">`;
+                    preview.innerHTML = `
+                        <div class="preview-wrapper animated-up">
+                            <img src="${e.target.result}" alt="Preview">
+                        </div>`;
                 }
                 reader.readAsDataURL(file);
             }
