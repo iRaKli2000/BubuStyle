@@ -1,28 +1,56 @@
-<section class="upload-section">
-    <h3>ატვირთე შენი ფოტო</h3>
-    
-    <input type="file" id="imageInput" accept="image/*" style="display:none;">
-    <label for="imageInput" class="btn-primary">აირჩიე ფაილი</label>
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BubuStyle | Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
-    <div id="preview"></div>
-</section>
+    <div class="main-card">
+        <header>
+            <h1 class="logo">BUBU<span>STYLE</span></h1>
+            <p class="tagline">Minimalist Digital Concept</p>
+        </header>
 
-<script>
-    // მარტივი კოდი, რომელიც აჩვენებს ატვირთულ ფოტოს
-    document.getElementById('imageInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.width = '200px';
-                img.style.marginTop = '20px';
-                img.style.borderRadius = '10px';
-                document.getElementById('preview').innerHTML = '';
-                document.getElementById('preview').appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
+        <nav class="button-group">
+            <button class="nav-btn">პროექტები</button>
+            <button class="nav-btn active">გალერეა</button>
+            <button class="nav-btn">კონტაქტი</button>
+        </nav>
+
+        <section class="upload-container">
+            <input type="file" id="imageInput" accept="image/*" hidden>
+            <label for="imageInput" class="custom-upload">
+                <span class="upload-icon">+</span>
+                <span class="upload-text">ატვირთე ფოტო</span>
+            </label>
+            
+            <div id="previewBox">
+                </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 BUBUSTYLE // LABORATORY</p>
+        </footer>
+    </div>
+
+    <script>
+        const input = document.getElementById('imageInput');
+        const preview = document.getElementById('previewBox');
+
+        input.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = `<img src="${e.target.result}" class="image-preview animated">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
